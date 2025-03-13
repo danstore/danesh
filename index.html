@@ -1,0 +1,533 @@
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danesh Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-store"></i>
+            <h1>Danesh Store</h1>
+        </div>
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="Search products..." data-i18n-placeholder="searchProducts">
+            <button id="search-button"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="language-selector">
+            <select id="language-selector">
+                <option value="en">English</option>
+                <option value="de">Deutsch</option>
+                <option value="fa">فارسی</option>
+            </select>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home" data-i18n="home">Home</a></li>
+                <li class="category-dropdown">
+                    <a href="#products" data-i18n="products">Products</a>
+                    <div class="dropdown-content">
+                        <a href="#products" data-category="electronics" data-i18n-category="electronics">Electronics</a>
+                        <a href="#products" data-category="fashion" data-i18n-category="fashion">Fashion</a>
+                        <a href="#products" data-category="homeKitchen" data-i18n-category="homeKitchen">Home & Kitchen</a>
+                        <a href="#products" data-category="beauty" data-i18n-category="beauty">Beauty & Personal Care</a>
+                        <a href="#products" data-category="pets" data-i18n-category="pets">Pets</a>
+                        <a href="#products" data-category="filmsMusic" data-i18n-category="filmsMusic">Films & Music</a>
+                        <a href="#products" data-category="ebooks" data-i18n-category="ebooks">eBooks</a>
+                        <a href="#products" data-category="officeSupplies" data-i18n-category="officeSupplies">Stationery & Office Supplies</a>
+                    </div>
+                </li>
+                <li><a href="#about" data-i18n="aboutUs">About Us</a></li>
+                <li><a href="#contact" data-i18n="contact">Contact</a></li>
+                <li class="logged-out"><a href="#" class="show-login-modal" data-i18n="loginRegister">Login/Register</a></li>
+                <li class="logged-in" style="display: none;">
+                    <div class="user-dropdown">
+                        <a href="#profile" id="user-profile-btn">
+                            <i class="fas fa-user"></i> <span id="user-name"></span>
+                        </a>
+                        <div class="dropdown-content">
+                            <a href="#profile" data-i18n="myProfile">My Profile</a>
+                            <a href="#" id="logout-btn" data-i18n="logout">Logout</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="sticky-sidebar">
+        <div class="sidebar-box" id="news-box">
+            <button class="close-box"><i class="fas fa-times"></i></button>
+            <h4>Latest News</h4>
+            <div class="news-item">
+                <div class="news-date">15 Nov 2023</div>
+                <a href="#">New Apple products arrived at our store!</a>
+            </div>
+            <div class="news-item">
+                <div class="news-date">10 Nov 2023</div>
+                <a href="#">Black Friday sale starts next week!</a>
+            </div>
+            <div class="news-item">
+                <div class="news-date">5 Nov 2023</div>
+                <a href="#">Join our loyalty program and get 10% off</a>
+            </div>
+        </div>
+        
+        <div class="sidebar-box" id="offers-box">
+            <button class="close-box"><i class="fas fa-times"></i></button>
+            <h4>Special Offers</h4>
+            <div class="sidebar-offer">
+                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12" class="offer-image" alt="Watch">
+                <div class="offer-info">
+                    <div class="offer-title">Apple Watch</div>
+                    <div class="offer-price">€349.99</div>
+                </div>
+            </div>
+            <div class="sidebar-offer">
+                <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90" class="offer-image" alt="Headphones">
+                <div class="offer-info">
+                    <div class="offer-title">Sony Headphones</div>
+                    <div class="offer-price">€129.99</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sidebar-box" id="hours-box">
+            <button class="close-box"><i class="fas fa-times"></i></button>
+            <h4>Opening Hours</h4>
+            <p>Monday - Friday: 9am - 8pm</p>
+            <p>Saturday: 10am - 6pm</p>
+            <p>Sunday: Closed</p>
+        </div>
+        
+        <div class="sidebar-box" id="social-box">
+            <button class="close-box"><i class="fas fa-times"></i></button>
+            <h4>Connect With Us</h4>
+            <div class="social-sidebar">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <section id="home" class="hero">
+        <div class="hero-slideshow" id="hero-slideshow">
+            <!-- Slideshow content will be added dynamically -->
+        </div>
+        <div class="hero-content">
+            <h2 data-i18n="welcomeTo">Welcome to Danesh Store</h2>
+            <p data-i18n="heroSubtitle">Quality Amazon products at great prices throughout Germany and Europe</p>
+            <a href="#products" class="btn" data-i18n="viewProducts">View Products</a>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <h2 class="section-title" data-i18n="ourTopProducts">Our Top Products</h2>
+        <div class="products-wrapper">
+            <div class="category-sidebar">
+                <h3 class="category-title" data-i18n="categories">Categories</h3>
+                
+                <!-- Electronics Category -->
+                <div class="category-item">
+                    <button class="category-btn" data-target="electronics-subcategories">
+                        <span data-i18n-category="electronics">Electronics</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul id="electronics-subcategories" class="subcategory-list">
+                        <li class="subcategory-item" data-category="smartphones">
+                            <span data-i18n-category="smartphones">Smartphones</span>
+                        </li>
+                        <li class="subcategory-item" data-category="laptops">
+                            <span data-i18n-category="laptops">Laptops</span>
+                        </li>
+                        <li class="subcategory-item" data-category="audioDevices">
+                            <span data-i18n-category="audioDevices">Audio Devices</span>
+                        </li>
+                        <li class="subcategory-item" data-category="wearables">
+                            <span data-i18n-category="wearables">Wearables</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Fashion Category -->
+                <div class="category-item">
+                    <button class="category-btn" data-target="fashion-subcategories">
+                        <span data-i18n-category="fashion">Fashion</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul id="fashion-subcategories" class="subcategory-list">
+                        <li class="subcategory-item" data-category="mensClothing">
+                            <span data-i18n-category="mensClothing">Men's Clothing</span>
+                        </li>
+                        <li class="subcategory-item" data-category="womensClothing">
+                            <span data-i18n-category="womensClothing">Women's Clothing</span>
+                        </li>
+                        <li class="subcategory-item" data-category="jewelry">
+                            <span data-i18n-category="jewelry">Jewelry</span>
+                        </li>
+                        <li class="subcategory-item" data-category="watches">
+                            <span data-i18n-category="watches">Watches</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Home & Kitchen Category -->
+                <div class="category-item">
+                    <button class="category-btn" data-target="home-subcategories">
+                        <span data-i18n-category="homeKitchen">Home & Kitchen</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul id="home-subcategories" class="subcategory-list">
+                        <li class="subcategory-item" data-category="furniture">
+                            <span data-i18n-category="furniture">Furniture</span>
+                        </li>
+                        <li class="subcategory-item" data-category="kitchenAppliances">
+                            <span data-i18n-category="kitchenAppliances">Kitchen Appliances</span>
+                        </li>
+                        <li class="subcategory-item" data-category="homeDecor">
+                            <span data-i18n-category="homeDecor">Home Decor</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Beauty & Personal Care Category -->
+                <div class="category-item">
+                    <button class="category-btn" data-target="beauty-subcategories">
+                        <span data-i18n-category="beauty">Beauty & Personal Care</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul id="beauty-subcategories" class="subcategory-list">
+                        <li class="subcategory-item" data-category="skincare">
+                            <span data-i18n-category="skincare">Skincare</span>
+                        </li>
+                        <li class="subcategory-item" data-category="haircare">
+                            <span data-i18n-category="haircare">Haircare</span>
+                        </li>
+                        <li class="subcategory-item" data-category="makeup">
+                            <span data-i18n-category="makeup">Makeup</span>
+                        </li>
+                        <li class="subcategory-item" data-category="fragrance">
+                            <span data-i18n-category="fragrance">Fragrance</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Pet Category -->
+                <div class="category-item">
+                    <button class="category-btn" data-target="pet-subcategories">
+                        <span data-i18n-category="pets">Pets</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul id="pet-subcategories" class="subcategory-list">
+                        <li class="subcategory-item" data-category="dogSupplies">
+                            <span data-i18n-category="dogSupplies">Dog Supplies</span>
+                        </li>
+                        <li class="subcategory-item" data-category="catSupplies">
+                            <span data-i18n-category="catSupplies">Cat Supplies</span>
+                        </li>
+                        <li class="subcategory-item" data-category="petFood">
+                            <span data-i18n-category="petFood">Pet Food</span>
+                        </li>
+                        <li class="subcategory-item" data-category="petToys">
+                            <span data-i18n-category="petToys">Pet Toys</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Films & Music Category -->
+                <div class="category-item">
+                    <button class="category-btn" data-target="media-subcategories">
+                        <span data-i18n-category="filmsMusic">Films & Music</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul id="media-subcategories" class="subcategory-list">
+                        <li class="subcategory-item" data-category="filmsDownload">
+                            <span data-i18n-category="filmsDownload">Films (Download)</span>
+                        </li>
+                        <li class="subcategory-item" data-category="filmsStream">
+                            <span data-i18n-category="filmsStream">Films (Watch Online)</span>
+                        </li>
+                        <li class="subcategory-item" data-category="musicDownload">
+                            <span data-i18n-category="musicDownload">Music (Download)</span>
+                        </li>
+                        <li class="subcategory-item" data-category="musicStream">
+                            <span data-i18n-category="musicStream">Music (Listen Online)</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- eBooks Category -->
+                <div class="category-item">
+                    <button class="category-btn" data-target="ebooks-subcategories">
+                        <span data-i18n-category="ebooks">eBooks</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul id="ebooks-subcategories" class="subcategory-list">
+                        <li class="subcategory-item" data-category="ebooksFiction">
+                            <span data-i18n-category="ebooksFiction">Fiction</span>
+                        </li>
+                        <li class="subcategory-item" data-category="ebooksNonFiction">
+                            <span data-i18n-category="ebooksNonFiction">Non-Fiction</span>
+                        </li>
+                        <li class="subcategory-item" data-category="ebooksAcademic">
+                            <span data-i18n-category="ebooksAcademic">Academic</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Stationery & Office Supplies Category -->
+                <div class="category-item">
+                    <button class="category-btn" data-target="office-subcategories">
+                        <span data-i18n-category="officeSupplies">Stationery & Office Supplies</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul id="office-subcategories" class="subcategory-list">
+                        <li class="subcategory-item" data-category="stationery">
+                            <span data-i18n-category="stationery">Stationery</span>
+                        </li>
+                        <li class="subcategory-item" data-category="officeSupplies">
+                            <span data-i18n-category="officeEquipment">Office Equipment</span>
+                        </li>
+                        <li class="subcategory-item" data-category="schoolSupplies">
+                            <span data-i18n-category="schoolSupplies">School Supplies</span>
+                        </li>
+                        <li class="subcategory-item" data-category="artSupplies">
+                            <span data-i18n-category="artSupplies">Art Supplies</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Product Promotion Slideshow -->
+                <div class="promo-slideshow" id="category-promo-slideshow">
+                    <!-- Promo slides will be added dynamically -->
+                    <div class="promo-controls" id="promo-dots">
+                        <!-- Dots will be added dynamically -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="products-container">
+                <!-- Products are dynamically loaded here -->
+            </div>
+        </div>
+        <button id="load-more" class="btn" data-i18n="loadMore">Load More</button>
+    </section>
+
+    <section id="featured" class="featured">
+        <h2 class="section-title" data-i18n="featuredProducts">Featured Products</h2>
+        <div class="featured-slider">
+            <div class="slider-container">
+                <!-- Featured products slider loads here -->
+            </div>
+            <button class="slider-btn prev"><i class="fas fa-chevron-right"></i></button>
+            <button class="slider-btn next"><i class="fas fa-chevron-left"></i></button>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2 class="section-title" data-i18n="aboutDaneshStore">About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p data-i18n="aboutText1">Danesh Store is an official Amazon product showcase. We curate the best products from across Amazon and introduce them to customers in Germany and across Europe.</p>
+                <p data-i18n="aboutText2">Our goal is to offer high-quality products, competitive prices, and excellent service to our valued customers.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <h3>+5000</h3>
+                    <p data-i18n="satisfiedCustomers">Satisfied Customers</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-box"></i>
+                    <h3>+1000</h3>
+                    <p data-i18n="products">Products</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-star"></i>
+                    <h3>4.8</h3>
+                    <p data-i18n="rating">Rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title" data-i18n="contactUs">Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-form">
+                <h3 data-i18n="sendMessage">Send Message</h3>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name" data-i18n="fullName">Full Name</label>
+                        <input type="text" id="name" name="name" required data-i18n-placeholder="fullName">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-i18n="email">Email</label>
+                        <input type="email" id="email" name="email" required data-i18n-placeholder="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-i18n="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required data-i18n-placeholder="message"></textarea>
+                    </div>
+                    <button type="submit" class="btn" data-i18n="send">Send Message</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h3 data-i18n="contactInformation">Contact Information</h3>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Berlin, Germany</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+49-123-456789</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5f363139301f3b3e313a2c372c2b302d3a713c3032">[email&#160;protected]</a></p>
+                </div>
+                <div class="social-media">
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="profile" class="profile">
+        <h2 class="section-title" data-i18n="myProfile">My Profile</h2>
+        <div class="profile-container">
+            <div class="profile-card">
+                <div class="profile-header">
+                    <i class="fas fa-user-circle"></i>
+                    <div id="user-profile-info">
+                        <!-- User info will be inserted here -->
+                    </div>
+                </div>
+                <div class="profile-content">
+                    <h3 data-i18n="myFavorites">My Favorites</h3>
+                    <div id="favorites-container" class="favorites-container">
+                        <!-- Favorites will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="user-auth-modal" class="modal">
+        <div class="modal-content auth-modal">
+            <span class="close-modal">&times;</span>
+            <div class="auth-tabs">
+                <div id="login-tab" class="auth-tab active" data-i18n="login">Login</div>
+                <div id="register-tab" class="auth-tab" data-i18n="register">Register</div>
+            </div>
+            <div class="auth-content">
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email" data-i18n="email">Email</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password" data-i18n="password">Password</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit" class="btn" data-i18n="login">Login</button>
+                </form>
+                <form id="register-form" style="display: none;">
+                    <div class="form-group">
+                        <label for="register-name" data-i18n="fullName">Full Name</label>
+                        <input type="text" id="register-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email" data-i18n="email">Email</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password" data-i18n="password">Password</label>
+                        <input type="password" id="register-password" required minlength="6">
+                    </div>
+                    <button type="submit" class="btn" data-i18n="register">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <!-- Product details load here -->
+            </div>
+        </div>
+    </div>
+
+    <div id="media-player-modal" class="modal">
+        <div class="modal-content media-player-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <!-- Media player loads here -->
+            </div>
+        </div>
+    </div>
+
+    <div id="ebook-reader-modal" class="modal">
+        <div class="modal-content ebook-reader-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <!-- eBook reader loads here -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-store"></i>
+                <h2>Danesh Store</h2>
+            </div>
+            <div class="footer-links">
+                <h3 data-i18n="quickLinks">Quick Links</h3>
+                <ul>
+                    <li><a href="#home" data-i18n="home">Home</a></li>
+                    <li><a href="#products" data-i18n="products">Products</a></li>
+                    <li><a href="#about" data-i18n="aboutUs">About Us</a></li>
+                    <li><a href="#contact" data-i18n="contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h3 data-i18n="newsletter">Newsletter</h3>
+                <p data-i18n="subscribeText">Subscribe to our newsletter for the latest products and discounts</p>
+                <form id="newsletter-form">
+                    <input type="email" data-i18n-placeholder="enterEmail" required>
+                    <button type="submit" class="btn" data-i18n="subscribe">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-i18n="copyright">&copy; 2023 Danesh Store. All rights reserved.</p>
+            <div class="admin-actions">
+                <button id="download-website-btn" class="btn download-btn"><i class="fas fa-download"></i> Download Website</button>
+                <a href="admin.html" class="admin-link">Admin Panel</a>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="translations.js"></script>
+    <script src="products.js"></script>
+    <script src="app.js"></script>
+    <script src="media-player.js"></script>
+    <script src="user-auth.js"></script>
+    <script src="promo-banner.js"></script>
+    <script src="header-banner.js"></script>
+    <script src="hero-slideshow.js"></script>
+    <script src="download-handler.js"></script>
+</body>
+</html>
